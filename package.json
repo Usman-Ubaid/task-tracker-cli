@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "add": "ts-node src/add.ts",
+    "list": "ts-node src/list.ts",
+    "remove": "ts-node src/remove.ts",
+    "update": "ts-node src/update.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^7.0.2"
+  }
+}
