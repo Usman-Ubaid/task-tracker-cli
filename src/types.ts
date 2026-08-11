@@ -1,4 +1,6 @@
-export type Status = "todo" | "in-progress" | "done";
+export const STATUSES = ['todo', 'in-progress', 'done'] as const;
+
+export type Status = typeof STATUSES[number]
 
 export interface Task {
   id: string;

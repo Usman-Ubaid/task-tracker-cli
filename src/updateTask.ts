@@ -10,7 +10,7 @@ export const updateTask = (
 ) => {
   const tasks = readFile(filePath);
   const taskIndex = tasks.findIndex((task) => task.id === id);
-  const task = tasks[taskIndex]
+  const task = tasks[taskIndex];
 
   if (task && (description || status)) {
     const updatedTask = {
@@ -20,7 +20,7 @@ export const updateTask = (
       updatedAt: new Date().toISOString(),
     };
     tasks.splice(taskIndex, 1, updatedTask);
-    fs.writeFileSync(filePath, JSON.stringify(tasks));
+    fs.writeFileSync(filePath, JSON.stringify(tasks, null, 2));
   }
   return;
 };
