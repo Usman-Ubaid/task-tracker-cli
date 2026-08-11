@@ -3,12 +3,12 @@ import fs from "node:fs";
 import type { Status } from "./types.js";
 
 export const updateTask = (
-  pathFile: string,
+  filePath: string,
   id: string,
   description?: string,
   status?: Status,
 ) => {
-  const tasks = readFile(pathFile);
+  const tasks = readFile(filePath);
   const taskIndex = tasks.findIndex((task) => task.id === id);
   const task = tasks[taskIndex]
 
@@ -20,7 +20,7 @@ export const updateTask = (
       updatedAt: new Date().toISOString(),
     };
     tasks.splice(taskIndex, 1, updatedTask);
-    fs.writeFileSync(pathFile, JSON.stringify(tasks));
+    fs.writeFileSync(filePath, JSON.stringify(tasks));
   }
   return;
 };
