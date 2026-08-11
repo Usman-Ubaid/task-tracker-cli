@@ -3,10 +3,10 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "add": "ts-node src/add.ts",
-    "list": "ts-node src/list.ts",
-    "remove": "ts-node src/remove.ts",
-    "update": "ts-node src/update.ts"
+    "add": "node dist/index.js add",
+    "list": "node dist/index.js list",
+    "remove": "node dist/index.js remove",
+    "update": "node dist/index.js update"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
