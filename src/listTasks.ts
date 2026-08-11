@@ -1,6 +1,12 @@
-import fs from "node:fs";
-import type { Task } from "./types.js";
+import { readFile } from "./readFile.js";
+import type { Status, Task } from "./types.js";
 
-export const listTasks = (filePath: string): Task[] => {
-  return JSON.parse(fs.readFileSync(filePath, "utf8"))
+export const listTasks = (filePath: string, status?: Status): Task[] => {
+  if (status) {
+    const tasks = readFile(filePath);
+    const filteredTasks = tasks.filter((task) => task.status === status);
+    return filteredTasks;
+  } else {
+    return readFile(filePath);
+  }
 };
